@@ -10,13 +10,15 @@ body {
   min-height: 100vh;
 }
 header {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 header,
 form {
   min-height: 20vh;
   display: flex;
+  flex-direction: column;
+
   justify-content: center;
   align-items: center;
 }
@@ -37,6 +39,15 @@ form button:hover {
   background: #ff6f47;
   color: white;
 }
+
+form button:focus {
+  outline: none;
+}
+
+form input:focus {
+  outline: none;
+}
+
 .todo-container {
   display: flex;
   justify-content: center;
@@ -78,6 +89,7 @@ form button:hover {
   background: rgb(11, 212, 162);
 }
 .todo-item {
+  min-width: 300px;
   padding: 0rem 0.5rem;
 }
 
@@ -132,8 +144,11 @@ select {
   pointer-events: none;
 }
 /* Transition */
-/*
-.select:hover::after {
+
+/* .select:hover::after {
   transform: scale(1.5);
+} */
+
+.App {
+  min-width: 400px;
 }
-*/
