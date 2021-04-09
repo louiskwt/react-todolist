@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Todo = ({text, setTodos, todos, todo}) => {
+const Todo = ({text, setTodos, setId, todos, todo, setInputText}) => {
     // Events
     const deleteHandler = () => {
         console.log(todo);
@@ -19,10 +19,15 @@ const Todo = ({text, setTodos, todos, todo}) => {
         }))
     }
 
+    const setEditState = () => {
+        setInputText(todo.text);
+        setId(todo.id);
+    }
+
     return(
         <div className="todo">
-            <li className={`todo-item ${todo.completed ? "completed" : ''}`}>{text}</li>
-            <button onClick={completeHandler} className='complete-btn' ><i className="fas fa-check"></i></button>
+            <li onDoubleClick={completeHandler} className={`todo-item ${todo.completed ? "completed" : ''}`}>{text}</li>
+            <button onClick={setEditState} className='edit-btn' ><i className="fas fa-edit"></i></button>
             <button onClick={deleteHandler} className='trash-btn' ><i className="fas fa-trash"></i></button>
         </div>
     );

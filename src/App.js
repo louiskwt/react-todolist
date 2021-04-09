@@ -9,6 +9,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [id, setId] = useState('');
 
 
   // Run get local storage once when the app get started
@@ -38,15 +39,14 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos, status]);
   
- 
 
   return (
     <div className="App">
       <header>
         <h1>Louis's Todo List </h1>
       </header>
-      <Form inputText={inputText} setInputText={setInputText} todos={todos} setTodos={setTodos} setStatus={setStatus} />
-      <TodoList todos={todos} setTodos={setTodos} filteredTodos={filteredTodos} />
+      <Form inputText={inputText} id={id} setInputText={setInputText} todos={todos} setTodos={setTodos} setStatus={setStatus} />
+      <TodoList todos={todos} setId={setId} setTodos={setTodos} setInputText={setInputText} filteredTodos={filteredTodos} />
     </div>
   );
 }
